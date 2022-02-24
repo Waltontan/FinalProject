@@ -51,11 +51,35 @@ def predictor():
 
 
 @app.route("/api/predict/<pressure>/<humidity>/<city>", methods=["GET"])
-def do_predict(pressure, humidity, city):
+def do_predict(fixed_acidity, 
+                volatile_acidity, 
+                citric_acid, 
+                residual_sugar,
+                chlorides,
+                free_sulfur_dioxide,
+                total_sulfur_dioxide,
+                density,
+                pH,
+                sulphates,
+                alcohol):
+    # user_input = {
+    #     "pressure": float(pressure), 
+    #     "humidity": float(humidity), 
+    #     "city_name": city
+    # }
+
     user_input = {
-        "pressure": float(pressure), 
-        "humidity": float(humidity), 
-        "city_name": city
+        "fixed_acidity": float[fixed_acidity],
+        "volatile_acidity": float[volatile_acidity],
+        "citric_acid": float[citric_acid],
+        "residual_sugar": float[residual_sugar],
+        "chlorides": float[chlorides],
+        "free_sulfur_dioxide": float[free_sulfur_dioxide],
+        "total_sulfur_dioxide": float[total_sulfur_dioxide],
+        "density": float[density],
+        "pH": float[pH],
+        "sulphates": float[sulphates],
+        "alcohol": float[alcohol]
     }
     prediction = predict(user_input)
 

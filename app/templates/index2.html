@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block body %}
+
 <div class="container">
     <div class="row">
         <div class="col-12">
@@ -8,65 +9,130 @@
             <div id="temp"></div>
         </div>
     </div>
+</div>
+<div class="container">
+    <div class="row no-gutters">
+        <div class="col-3">
+            <div class="cell">
+                <label class="form-label" for="fixed_acidity">Fixed Acidity</label>
+                <input class="form-control" type="number" name="fixed_acidity" id="fixed_acidity"
+                    placeholder="0.01 - 0.50">
+                <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="cell">
+                <label class="form-label" for="volatile_acidity">Volatile Acidity</label>
+                <input class="form-control" type="number" name="volatile_acidity" id="volatile_acidity"
+                    placeholder="0.02 - 0.50">
+                <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="cell text-center">
+                <button type="button" class="btn btn-dark btn-primary btn-lg btn-block" id="predict_button">Predict My
+                    Quality!</button>
+            </div>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-6">
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="citric_acid">Citric Acid</label>
+                        <input class="form-control" type="number" name="citric_acid" id="citric_acid"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="residual_sugar">Residual Sugar</label>
+                        <input class="form-control" type="number" name="residual_sugar" id="residual_sugar"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="chlorides">Chlorides</label>
+                        <input class="form-control" type="number" name="chlorides" id="chlorides"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="free_sulfur_dioxide">Free Sulphur Dioxide</label>
+                        <input class="form-control" type="number" name="free_sulfur_dioxide" id="free_sulfur_dioxide"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="total_sulfur_dioxide">Total Sulphur Dioxide</label>
+                        <input class="form-control" type="number" name="total_sulfur_dioxide" id="total_sulfur_dioxide"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="density">Density</label>
+                        <input class="form-control" type="number" name="density" id="density" placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="pH">pH</label>
+                        <input class="form-control" type="number" name="pH" id="pH" placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="sulphates">Sulphates</label>
+                        <input class="form-control" type="number" name="sulphates" id="sulphates"
+                            placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-6">
+                    <div class="cell">
+                        <label class="form-label" for="alcohol">Alcohol</label>
+                        <input class="form-control" type="number" name="alcohol" id="alcohol" placeholder="0.01 - 0.50">
+                        <div class="form-text">Atmospheric humidty. Typically ranges: 40-60</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="cell cell__big" id="predicted_quality">
+                <H1>PREDICTION IS </H1>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
 
     <div class="row">
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
 
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
 
     </div>
     <div class="row">
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
 
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div id="Vis1" style=>
-                <form action="/url" method="GET">
-                    <p>Parameter</p>
-                    <input type="text">
-                </form>
-            </div>
-        </div>
-
-    </div>
-    <div class="row">
-        <H1>PREDICTION IS </H1>
 
     </div>
 

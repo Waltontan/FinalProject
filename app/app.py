@@ -50,7 +50,7 @@ def predictor():
 #     return {"temps": recent_temps.to_dict(orient="records")}
 
 
-@app.route("/api/predict/<pressure>/<humidity>/<city>", methods=["GET"])
+@app.route("/api/predict/<fixed_acidity>/<volatile_acidity>/<citric_acid>/<residual_sugar>/<chlorides>/<free_sulfur_dioxide>/<total_sulfur_dioxide>/<density>/<pH>/<sulphates>/<alcohol>", methods=["GET"])
 def do_predict(fixed_acidity, 
                 volatile_acidity, 
                 citric_acid, 
@@ -83,6 +83,7 @@ def do_predict(fixed_acidity,
     }
     prediction = predict(user_input)
 
+    # return {"prediction": prediction}
     return {"prediction": prediction}
 
 if __name__ == "__main__":

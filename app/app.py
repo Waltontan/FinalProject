@@ -1,8 +1,8 @@
 from flask import Flask, render_template 
 import pandas as pd
-from sqlalchemy import create_engine
+# from sqlalchemy import create_engine
 # from sqlalchemy.engine import URL
-import os 
+# import os 
 from prediction import predict
 
 # create app 
@@ -51,17 +51,7 @@ def predictor():
 
 
 @app.route("/api/predict/<fixed_acidity>/<volatile_acidity>/<citric_acid>/<residual_sugar>/<chlorides>/<free_sulfur_dioxide>/<total_sulfur_dioxide>/<density>/<pH>/<sulphates>/<alcohol>", methods=["GET"])
-def do_predict(fixed_acidity, 
-                volatile_acidity, 
-                citric_acid, 
-                residual_sugar,
-                chlorides,
-                free_sulfur_dioxide,
-                total_sulfur_dioxide,
-                density,
-                pH,
-                sulphates,
-                alcohol):
+def do_predict(fixed_acidity, volatile_acidity, citric_acid, residual_sugar, chlorides,free_sulfur_dioxide, total_sulfur_dioxide, density, pH, sulphates, alcohol):
     # user_input = {
     #     "pressure": float(pressure), 
     #     "humidity": float(humidity), 
@@ -69,19 +59,22 @@ def do_predict(fixed_acidity,
     # }
 
     user_input = {
-        "fixed_acidity": float[fixed_acidity],
-        "volatile_acidity": float[volatile_acidity],
-        "citric_acid": float[citric_acid],
-        "residual_sugar": float[residual_sugar],
-        "chlorides": float[chlorides],
-        "free_sulfur_dioxide": float[free_sulfur_dioxide],
-        "total_sulfur_dioxide": float[total_sulfur_dioxide],
-        "density": float[density],
-        "pH": float[pH],
-        "sulphates": float[sulphates],
-        "alcohol": float[alcohol]
+        "fixed_acidity": float(fixed_acidity),
+        "volatile_acidity": float(volatile_acidity),
+        "citric_acid": float(citric_acid),
+        "residual_sugar": float(residual_sugar),
+        "chlorides": float(chlorides),
+        "free_sulfur_dioxide": float(free_sulfur_dioxide),
+        "total_sulfur_dioxide": float(total_sulfur_dioxide),
+        "density": float(density),
+        "pH": float(pH),
+        "sulphates": float(sulphates),
+        "alcohol": float(alcohol)
     }
-    prediction = predict(user_input)
+
+    user_inputs = pd.DataFrame(user_input)
+
+    prediction = predict(user_inputs)
 
     # return {"prediction": prediction}
     return {"prediction": prediction}

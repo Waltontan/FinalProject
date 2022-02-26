@@ -15,6 +15,7 @@ $("#predict_button").click(() => {
     console.log(fixed_acidity)
     console.log(volatile_acidity)
     console.log(citric_acid)
+
     $.getJSON(`/api/predict/${fixed_acidity}/${volatile_acidity}/${citric_acid}/${residual_sugar}/${chlorides}/${free_sulfur_dioxide}/${total_sulfur_dioxide}/${density}/${pH}/${sulphates}/${alcohol}`, (predicted) => {
         var predicted_quality = Math.floor(predicted.prediction)
         var img_src = ""
@@ -29,14 +30,16 @@ $("#predict_button").click(() => {
             img_src = "static/img/cold.png"
             temp_text = `It is a shivering cold day. The temperature is expected to be ${predicted_quality}.`
         }
-
-        $("#predicted_quality").html(`
-        <div class="card" style="width: 18rem;">
-            <img src="${img_src}" class="card-img-top">
-            <div class="card-body">
-            <p class="card-text">${temp_text}</p>
-            </div>
-        </div>
-        `)
+    // console.log('printhere')
+    // console.log(predicted_quality)
+    
+        // $("#predicted_quality").html(`
+        // <div class="card" style="width: 18rem;">
+        //     <img src="${img_src}" class="card-img-top">
+        //     <div class="card-body">
+        //     <p class="card-text">${temp_text}</p>
+        //     </div>
+        // </div>
+        // `)
     });
 });

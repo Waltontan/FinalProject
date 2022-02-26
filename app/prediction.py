@@ -1,21 +1,22 @@
 import pandas as pd 
 import joblib 
+from tensorflow.keras.models import load_model
 
 def predict(user_inputs):
     # load model binaries 
-    model = joblib.load("static/py/model_trained.h5")
+    model = load_model("static/py/model_trained.h5")
     encoder = joblib.load("static/py/encoder.sav")
     X_scaler = joblib.load("static/py/x_scaler.sav")
-    y_scaler  = joblib.load("static/py/y_scaler.sav")
+    # y_scaler  = joblib.load("static/py/y_scaler.sav")
 
     # get the user input data 
-    fixed_acidity = user_inputs["fixed acidity"]
-    volatile_acidity = user_inputs["volatile acidity"]
-    citric_acid = user_inputs["citric acid"]
-    residual_sugar = user_inputs["residual sugar"]
+    fixed_acidity = user_inputs["fixed_acidity"]
+    volatile_acidity = user_inputs["volatile_acidity"]
+    citric_acid = user_inputs["citric_acid"]
+    residual_sugar = user_inputs["residual_sugar"]
     chlorides = user_inputs["chlorides"]
-    free_sulfur_dioxide = user_inputs["free sulfur dioxide"]
-    total_sulfur_dioxide = user_inputs["total sulfur dioxide"]
+    free_sulfur_dioxide = user_inputs["free_sulfur_dioxide"]
+    total_sulfur_dioxide = user_inputs["total_sulfur_dioxide"]
     density = user_inputs["density"]
     pH = user_inputs["pH"]
     sulphates = user_inputs["sulphates"]
@@ -40,7 +41,7 @@ def predict(user_inputs):
     X_scaled = X_scaler.transform(input_df)
 
     # obtain prediction (y) 
-    encoded_predictions = model.predict_classes(X_scaled[:5])
+    encoded_predictions = model.predict_classes(X_scaled)
     
     
     # scale prediction to human readable terms i.e. celcius 

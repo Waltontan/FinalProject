@@ -1,6 +1,8 @@
 import pandas as pd 
 import joblib 
 from tensorflow.keras.models import load_model
+import numpy as np
+
 
 def predict(user_inputs):
     # load model binaries 
@@ -41,8 +43,7 @@ def predict(user_inputs):
     X_scaled = X_scaler.transform(input_df)
 
     # obtain prediction (y) 
-    encoded_predictions = model.predict_classes(X_scaled)
-    
+    encoded_predictions = np.argmax(model.predict(X_scaled), axis=-1)    
     
     # scale prediction to human readable terms i.e. celcius 
     prediction_labels = encoder.inverse_transform(encoded_predictions)

@@ -145,3 +145,48 @@ function predict_quality() {
 }
 
 d3.selectAll("#predict_button").on("click", predict_quality)
+
+
+function preset1() {
+    d3.select("#fixed_acidity").attr('value', 7.4)
+    d3.select("#volatile_acidity").attr('value', 0.98)
+    d3.select("#citric_acid").attr('value', 0.05)
+    d3.select("#residual_sugar").attr('value', 2.1)
+    d3.select("#chlorides").attr('value', 0.061)
+    d3.select("#free_sulfur_dioxide").attr('value', 20)
+    d3.select("#total_sulfur_dioxide").attr('value', 49)
+    d3.select("#density").attr('value', 0.9970)
+    d3.select("#pH").attr('value', 3.29)
+    d3.select("#sulphates").attr('value', 0.55)
+    d3.select("#alcohol").attr('value', 9.7)
+}
+
+function preset2() {
+    d3.select("#fixed_acidity").attr('value', 7.4)
+    d3.select("#volatile_acidity").attr('value', 0.61)
+    d3.select("#citric_acid").attr('value', 0.01)
+    d3.select("#residual_sugar").attr('value', 2)
+    d3.select("#chlorides").attr('value', 0.074)
+    d3.select("#free_sulfur_dioxide").attr('value', 13)
+    d3.select("#total_sulfur_dioxide").attr('value', 38)
+    d3.select("#density").attr('value', 0.99748)
+    d3.select("#pH").attr('value', 3.48)
+    d3.select("#sulphates").attr('value', 0.65)
+    d3.select("#alcohol").attr('value', 9.8)
+}
+function preset3() {
+    d3.select("#fixed_acidity").attr('value', 7.9)
+    d3.select("#volatile_acidity").attr('value', 0.54)
+    d3.select("#citric_acid").attr('value', 0.34)
+    d3.select("#residual_sugar").attr('value', 2.5)
+    d3.select("#chlorides").attr('value', 0.076)
+    d3.select("#free_sulfur_dioxide").attr('value', 8)
+    d3.select("#total_sulfur_dioxide").attr('value', 17)
+    d3.select("#density").attr('value', 0.99235)
+    d3.select("#pH").attr('value', 3.2)
+    d3.select("#sulphates").attr('value', 0.72)
+    d3.select("#alcohol").attr('value', 13.1)
+}
+d3.selectAll("#poison_button").on("click", preset1)
+d3.selectAll("#standard_button").on("click", preset2)
+d3.selectAll("#award_button").on("click", preset3)

@@ -2,7 +2,15 @@
 
 # Purpose and motivation
 
-The [Wine Quality Predictor App](http://winepredict-env.eba-knafuyum.ap-southeast-2.elasticbeanstalk.com/), is for winemakers and connoisseurs alike to predict the quality of wine based on a series of chemical parameters. 
+The [Wine Quality Predictor App](http://winepredict-env.eba-knafuyum.ap-southeast-2.elasticbeanstalk.com/) allows users to predict the quality of wine based on a series of chemical parameters. 
+The app is primarily for prospective winemakers to see whether theyre on to a winner, or whether its time to head back to the old drawing board.
+
+The app also provides some context to Wine and Alchol consumption.
+Alcohol is quite a big part of the australian culture & industry. In this project we want to explore the different impact and habit related to alcohol around the world.
+
+
+
+
 
 The app is hosted on AWS using Elastic Beanstalk (ELB). 
 
@@ -92,7 +100,7 @@ This will produce a `.zip` file which contains all the code and library packages
 
 For re-use, we've stored the commands in [build.bat](app/build.bat). 
 
-You can just build the app by running either 
+You can just build the app by running 
 
 <b>windows</b>:
 ```
@@ -111,11 +119,8 @@ build.bat
     4. In the "Application code" section, select "Upload your code"
         - Select "Local file" > "Choose file" and select the `.zip` file you have built 
     5. Select "Configure more options" 
-        1. Select "Software" > "Edit"
-            - Provide the environment properties based on your environment variables in [_config.template.sh](app/_config.template.sh) or [_config.template.bat](app/_config.template.bat).
-            - Select "Save" 
-        2. Select "Capacity" > "Edit" 
-            - Under "Instance types", ensure that only "t2.micro" is selected. 
+        1. Select "Capacity" > "Edit" 
+            - This model requires a reasonable amount of capacity to perform the machine learning (c5.xlarge used in demo).
             - Select "Save" 
     6. Select "Create app" 
 
